@@ -1,94 +1,11 @@
 {
-  //–– Core screen & buffer control
-  "BeginGraphics":      "gfx_Begin",          // initialize graphx mode :contentReference[oaicite:0]{index=0}
-  "EndGraphics":        "gfx_End",            // restore OS mode :contentReference[oaicite:1]{index=1}
-  "SetDrawBuffer":      "gfx_SetDrawBuffer",  // draw off‑screen :contentReference[oaicite:2]{index=2}
-  "SetDrawScreen":      "gfx_SetDrawScreen",  // draw on‑screen :contentReference[oaicite:3]{index=3}
-  "BlitScreen":         "gfx_BlitScreen",     // buffer ← screen :contentReference[oaicite:4]{index=4}
-  "BlitBuffer":         "gfx_BlitBuffer",     // screen ← buffer :contentReference[oaicite:5]{index=5}
-  "SwapDraw":           "gfx_SwapDraw",       // swap buffers :contentReference[oaicite:6]{index=6}
-
-  //–– Primitives & shapes
-  "SetPixel":           "/*inline*/ gfx_vbuffer[y*GFX_LCD_WIDTH+x] = color", 
-  "DrawLine":           "gfx_Line",           // draw line :contentReference[oaicite:7]{index=7}
-  "DrawLineNoClip":     "gfx_Line_NoClip",
-  "DrawRect":           "gfx_Rectangle",
-  "DrawRectNoClip":     "gfx_Rectangle_NoClip",
-  "FillRect":           "gfx_FillRectangle",
-  "DrawCircle":         "gfx_Circle",         // outline :contentReference[oaicite:8]{index=8}
-  "DrawCircleNoClip":   "gfx_Circle_NoClip",
-  "FillCircle":         "gfx_FillCircle",
-  "FloodFill":          "gfx_FloodFill",      // area fill :contentReference[oaicite:9]{index=9}
-
-  //–– Palette & colors
-  "SetPalette":         "gfx_SetPalette",     // bulk palette set :contentReference[oaicite:10]{index=10}
-  "SetPaletteEntry":    "gfx_SetPaletteEntry",
-  "GetPaletteEntry":    "gfx_palette",        // direct access :contentReference[oaicite:11]{index=11}
-  "RGBTo1555":          "gfx_RGBTo1555",      // convert 24‑bit to 1555 :contentReference[oaicite:12]{index=12}
-
-  //–– Sprite & tilemaps
-  "AllocSprite":        "gfx_MallocSprite",         // dynamic sprite :contentReference[oaicite:13]{index=13}
-  "UninitSprite":       "gfx_UninitedSprite",
-  "TempSprite":         "gfx_TempSprite",
-  "AllocRLETSprite":    "gfx_AllocRLETSprite",
-  "MallocRLETSprite":   "gfx_MallocRLETSprite",
-  "UninitRLETSprite":   "gfx_UninitedRLETSprite",
-  "DrawSprite":         "gfx_Sprite",
-  "DrawSpriteTrans":    "gfx_TransparentSprite",
-  "DrawSpriteTransNoClip":"gfx_TransparentSprite_NoClip",
-  "DrawRLETSprite":     "gfx_RLETSprite",
-  "DrawRLETSpriteNoClip":"gfx_RLETSprite_NoClip",
-  "GetSprite":          "gfx_GetSprite",
-  "GetSpriteNoClip":    "gfx_GetSprite_NoClip",
-  "RotateSprite":       "gfx_RotateSpriteCC",
-  "ScaleSprite":        "gfx_ScaleSprite",
-
-  //–– Tilemap functions
-  "CreateTilemap":      "gfx_Tilemap",
-  "SetTile":            "gfx_SetTile",
-  "GetTile":            "gfx_GetTile",
-  "SetTileMapped":      "gfx_SetTileMapped",
-  "GetTileMapped":      "gfx_GetTileMapped",
-
-  //–– Font & text (fontlibc)
-  "SetFont":            "fontlib_SetFont",         // custom fonts :contentReference[oaicite:14]{index=14}
-  "PrintString":        "gfx_PrintStringXY",       // text at X,Y :contentReference[oaicite:15]{index=15}
-  "GetStringWidth":     "fontlib_GetStringWidth",
-  "GetFontHeight":      "fontlib_GetFontHeight",
-  "SetLineSpacing":     "fontlib_SetLineSpacing",
-  "SetFontSpacing":     "gfx_SetFontSpacing",
-
-  //–– Input (keypadc.h)
-  "GetAnyKey":          "os_GetCSC",               // non‑blocking key 
-  "WaitKey":            "os_WaitKey",              // blocking key
-  "TestKey":            "os_TestKey",              // test specific key
-
-  //–– File I/O (fileioc.h)
-  "OpenAppVar":         "ti_Open",                 // open AppVar :contentReference[oaicite:16]{index=16}
-  "CloseAppVar":        "ti_Close",
-  "ReadAppVar":         "ti_Read",
-  "WriteAppVar":        "ti_Write",
-  "SeekAppVar":         "ti_Seek",
-  "TellAppVar":         "ti_Tell",
-  "GetAppVarSize":      "ti_GetSize",
-  "DeleteAppVar":       "ti_Delete",
-  "DetectAppVar":       "ti_Detect",
-
-  //–– Timers & random
-  "GetTicks":           "os_GetTicks",             // ms since boot
-  "Delay":              "os_Delay",                // ms sleep 
-  "Srand":              "os_Srand",
-  "Rand":               "os_Rand",
-
-  //–– Math
-  "Sin":                "os_Sin",
-  "Cos":                "os_Cos",
-  "Tan":                "os_Tan",
-  "Sqrt":               "os_Sqrt",
-  "Pow":                "os_Pow",
-
-  //–– System & GC
-  "SetGCBehavior":      "ti_SetGCBehavior",        // GC callbacks :contentReference[oaicite:17]{index=17}
-  "ClearScreen":        "os_ClrHome",              // home 
-  "Beep":               "os_Beep"                  // speaker 
+  "Clear": "os_ClrHome",
+  "GetAnyKeyPressed": "os_GetCSC",
+  "WriteOnScreen": "os_PutStrFull",
+  "Console.WriteLine": "os_PutStrFull",
+  "SetCursorPosition": "os_SetCursor",
+  "DrawRectangle": "os_DrawRect",
+  "DrawCircle": "os_DrawCircle",
+  "Delay": "os_Delay",
+  "Beep": "os_Beep"
 }
