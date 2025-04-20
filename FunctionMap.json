@@ -1,4 +1,7 @@
 {
+  "LatestChaiVersion": "1.0.1",
+  
+  
   "RandomInt": "randInt",
   "WriteOnScreen": "os_PutStrFull",
   "ClearScreen": "os_ClrHome",
